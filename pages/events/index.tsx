@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import Link from "next/link";
+import Card from '../../components/card/Card';
 
 import NavBar from '../../components/navbar/navbar';
 
@@ -8,11 +9,7 @@ const Events: NextPage = () => {
       <>
         <NavBar/>
         <h1>Próximos eventos</h1>
-        <button className="btn btn-primary">
-            <Link href="/checkout">
-                <a>Comprar</a>
-            </Link>
-        </button>
+        <Card/>
       </>
     )
   }
