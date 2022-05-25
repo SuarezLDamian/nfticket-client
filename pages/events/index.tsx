@@ -1,8 +1,10 @@
 import type { NextPage } from 'next';
-import Carousel from '../../components/carousel/carousel';
 
 import NavBar from '../../components/navbar/navbar';
 import Steps from '../../components/steps/steps';
+import Carousel from '../../components/carousel/carousel';
+import Card from '../../components/card/Card';
+import Footer from '../../components/footer/footer';
 
 const Events: NextPage = () => {
     return (
@@ -14,9 +16,20 @@ const Events: NextPage = () => {
         <div className="flex justify-center">
             <Steps stepNumber={2}/>
         </div>
-        <div className="mt-24 flex justify-center">
+        {/* <div className="mt-24 flex justify-center">
             <Carousel/>
+        </div> */}
+        <div className="grid grid-cols-4 gap-4">
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
+            <Card/>
         </div>
+        <Footer/>
       </>
     )
   }
