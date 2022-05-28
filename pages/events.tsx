@@ -9,22 +9,27 @@ import Footer from '../components/footer/footer';
 const events = [{
     title: 'Duki',
     description: 'El duketo en vivo en el estadio Velez',
+    image: 'https://cloudfront-us-east-1.images.arcpublishing.com/infobae/XXAEPLZ24NC4JAAEC3NI4NVIS4.JPG',
   },
   {
     title: 'Coldplay',
     description: 'Uno que canta temitas',
+    image: 'https://cloudfront-us-east-1.images.arcpublishing.com/infobae/IPKG37UJIVGJFLZ4KASRLN64RM.jpg',
   },
   {
-    title: 'Alan gomez',
-    description: 'Turreo edition',
+    title: 'Cazzu',
+    description: 'La más turra guacho',
+    image: 'https://pbs.twimg.com/media/DhnYoVQX4AUic5G.jpg',
   },
   {
     title: 'Kenlo',
     description: 'Kenlo live session',
+    image: 'https://d1csarkz8obe9u.cloudfront.net/posterpreviews/summer-party-flyer-design-template-55f9cc650af0b208928bddf7691b1640_screen.jpg',
   },
   {
-    title: 'Tiesto',
-    description: 'Tuchi tuchi',
+    title: 'Creamfields',
+    description: 'La jodita tuchi tuchi',
+    image: 'https://farm5.static.flickr.com/4131/5047491010_b26a04cfea_b.jpg',
   },
 ];
 
@@ -42,7 +47,7 @@ const Events: NextPage = () => {
             {
               events.map((event, index) => (   
                 <div key={index} className='flex justify-center'>             
-                  <Card key={index} description={event.description} title={event.title} />
+                  <Card key={index} description={event.description} title={event.title} image={event.image} />
                   </div>
               ))
             }
