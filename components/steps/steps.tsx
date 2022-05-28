@@ -7,25 +7,25 @@ const Steps = ({ stepNumber }: StepsProps) => {
   return (
         stepNumber === 2 ?
         <ul className="steps">
-            <li className="step step-primary">Ingreso</li>
-            <li className="step step-primary">Selección de evento</li>
-            <li className="step">Preferencias</li>
-            <li className="step">Pago</li>
+            <li className="step step-primary">Conectá</li>
+            <li className="step step-primary">Elegí</li>
+            <li className="step">Comprá</li>
+            <li className="step">Listo</li>
         </ul>
         :
         stepNumber === 3 ?
         <ul className="steps">
-            <li className="step step-primary">Ingreso</li>
-            <li className="step step-primary">Selección de evento</li>
-            <li className="step step-primary">Preferencias</li>
-            <li className="step">Pago</li>
+            <li className="step step-primary">Conectá</li>
+            <li className="step step-primary">Elegí</li>
+            <li className="step step-primary">Comprá</li>
+            <li className="step">Listo</li>
         </ul>
         :
         <ul className="steps">
-            <li className="step step-primary">Ingreso</li>
-            <li className="step step-primary">Selección de evento</li>
-            <li className="step step-primary">Preferencias</li>
-            <li className="step step-primary">Pago</li>
+            <li className="step step-primary">Conectá</li>
+            <li className="step step-primary">Elegí</li>
+            <li className="step step-primary">Comprá</li>
+            <li className="step step-primary">Listo</li>
         </ul>
   )
 }
