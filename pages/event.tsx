@@ -1,8 +1,9 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 
-import NavBar from '../../components/navbar/navbar';
-import Steps from '../../components/steps/steps';
+import NavBar from '../components/navbar/navbar';
+import Steps from '../components/steps/steps';
+import Footer from '../components/footer/footer';
 
 const Event: NextPage = () => {
   return (
@@ -20,9 +21,10 @@ const Event: NextPage = () => {
                         <a>Comprar</a>
                     </Link>
                 </button>          
-            </div>            
+            </div>
+            <Footer/>
         </>
-)
+    );
 }
 
 export default Event

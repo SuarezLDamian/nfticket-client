@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 
-import NavBar from '../../components/navbar/navbar';
-import Steps from '../../components/steps/steps';
+import NavBar from '../components/navbar/navbar';
+import Steps from '../components/steps/steps';
+import Footer from '../components/footer/footer';
 
 const Checkout: NextPage = () => {
     return (
@@ -13,6 +14,7 @@ const Checkout: NextPage = () => {
             <div className="flex justify-center">
                 <Steps stepNumber={4}/>
             </div>
+            <Footer/>
         </>
     )
   }
