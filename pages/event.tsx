@@ -33,8 +33,6 @@ const Event: NextPage = ( ) => {
                 <Link href="/checkout">
                     <a className="btn btn-primary mt-16">Comprar</a>
                 </Link>
-                {/* <button className="btn btn-primary mt-16">
-                </button> */}
             </div>
             <Footer/>
         </>
