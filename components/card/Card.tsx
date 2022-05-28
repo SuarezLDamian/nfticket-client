@@ -18,14 +18,12 @@ const Card = ( { title, description, image }: CardProps ) => {
                 <h2 className="card-title">{title}</h2>
                 <p>{description}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">
-                        <Link href={{
-                            pathname: "/event", 
-                            query: { title: title, description: description, image: image }}
-                        }>
-                            <a>Quiero ir</a>
-                        </Link>
-                    </button>
+                    <Link href={{
+                        pathname: "/event", 
+                        query: { title: title, description: description, image: image }}
+                    }>
+                        <a className="btn btn-primary">Quiero ir</a>
+                    </Link>
                 </div>
             </div>
         </div>

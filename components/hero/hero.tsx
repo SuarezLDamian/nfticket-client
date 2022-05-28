@@ -9,11 +9,9 @@ const Hero = () => {
                 <div className="max-w-md">
                     <h1 className="text-5xl font-bold">Entradas en formato NFT</h1>
                     <p className="py-6">Una nueva forma de comprar entradas para tus eventos favoritos de forma rápida, segura y anónima. Conectá tu wallet y probalo ahora.</p>
-                    <button className="btn btn-primary">
-                        <Link href="/events">
-                            <a>Próximos eventos</a>
-                        </Link>
-                    </button>
+                    <Link href="/events">
+                        <a className="btn btn-primary">Próximos eventos</a>
+                    </Link>
                 </div>
             </div>
         </div>
