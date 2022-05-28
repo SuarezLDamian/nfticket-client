@@ -12,7 +12,7 @@ const Card = ( { title, description, image }: CardProps ) => {
     return (
         <div className="card m-2 w-96 bg-base-100 shadow-xl">
             <figure>
-                <img src={image} alt="Duki Velez" />
+                <img src={image} alt={`Imagen Evento ${title}`} />
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
