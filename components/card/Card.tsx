@@ -4,10 +4,11 @@ import Link from "next/link";
 interface CardProps {
     title: string;
     description: string;
-    image: string
+    image: string;
 }
 
 const Card = ( { title, description, image }: CardProps ) => {
+
     return (
         <div className="card m-2 w-96 bg-base-100 shadow-xl">
             <figure>
@@ -18,7 +19,10 @@ const Card = ( { title, description, image }: CardProps ) => {
                 <p>{description}</p>
                 <div className="card-actions justify-end">
                     <button className="btn btn-primary">
-                        <Link href="/event">
+                        <Link href={{
+                            pathname: "/event", 
+                            query: { title: title, description: description, image: image }}
+                        }>
                             <a>Quiero ir</a>
                         </Link>
                     </button>

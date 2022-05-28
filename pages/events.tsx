@@ -36,19 +36,19 @@ const events = [{
 const Events: NextPage = () => {
     return (
       <>
-        <NavBar/>
-        <div className="flex justify-center">
-            <h1>Próximos eventos</h1>
-        </div>
+        <NavBar/>        
         <div className="flex justify-center">
             <Steps stepNumber={2}/>
+        </div>
+        <div className="m-8 flex justify-center">
+            <h1 className='text-6xl'>Próximos eventos</h1>
         </div>
         <div className="m-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">        
             {
               events.map((event, index) => (   
                 <div key={index} className='flex justify-center'>             
                   <Card key={index} description={event.description} title={event.title} image={event.image} />
-                  </div>
+                </div>
               ))
             }
         </div>
