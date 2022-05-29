@@ -16,7 +16,9 @@ const Home: NextPage = () => {
       </Head>      
       <NavBar/>
       <Hero/>
-      <Footer/>
+      <div className="relative bottom-0">
+        <Footer/>
+      </div>
     </>
   )
 }

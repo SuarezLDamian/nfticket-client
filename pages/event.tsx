@@ -33,7 +33,9 @@ const Event: NextPage = ( ) => {
             <div className="py-4 sm:px-16 xl:px-24 flex justify-center">            
                 <CardSingle title={name} description={description} image={image} value={PRICE} quantity={QUANTITY}/>        
             </div>
-            <Footer/>
+            <div className="relative bottom-0">
+                <Footer/>
+            </div>
         </>
     );
 }
