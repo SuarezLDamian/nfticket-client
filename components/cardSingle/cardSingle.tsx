@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ethers } from "ethers";
 import { useEffect } from "react";
-const { abi } = require("../../contracts/NFTicket.json");
+// const { abi } = require("../../contracts/NFTicket.json");
 
 interface CardProps {
     title: string;
