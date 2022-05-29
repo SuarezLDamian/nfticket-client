@@ -10,7 +10,7 @@ interface CardProps {
 const Card = ( { title, description, image }: CardProps ) => {
 
     return (
-        <div className="card m-2 w-96 lg:card-side bg-base-100 shadow-xl">
+        <div className="card m-2 w-84 lg:card-side bg-base-100 shadow-xl">
             <figure>
                 <img src={image} alt={`Imagen Evento ${title}`} />
                 {/* <Image src={"https://pbs.twimg.com/media/DhnYoVQX4AUic5G.jpg"} layout="fill" alt={`Imagen Evento ${title}`} /> */}
