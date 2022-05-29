@@ -14,7 +14,10 @@ const Event: NextPage = ( ) => {
     const description = query?.description;
     const image = query?.image;
 
-  return (
+    const PRICE = "10 MATIC"
+    const QUANTITY = "200"
+
+    return (
         <>
             <NavBar/>
             <div className="flex justify-center">
@@ -26,9 +29,11 @@ const Event: NextPage = ( ) => {
             <div className="m-4 flex justify-center">
                 <h1 className="text-xl">{description}</h1>
             </div>
-            <div className="m-4 flex justify-center">
-                <img src={image} alt={`Imagen Evento ${name}`} className='h-96 w-96'/>
+            <div className="m-4 flex justify-around">
+                {/* <img src={image} alt={`Imagen Evento ${name}`} className='h-96 w-96'/> */}
             </div>
+            <h1 className="m-4 flex justify-center text-xl">Precio: {PRICE}</h1>
+            <h1 className="m-4 flex justify-center text-xl">Disponibles: {QUANTITY}</h1>
             <div className="flex justify-center">
                 <Link href="/checkout">
                     <a className="btn btn-primary m-16">Comprar</a>
