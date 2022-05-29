@@ -8,7 +8,10 @@ import '@rainbow-me/rainbowkit/styles.css';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiProvider client={wagmiClient}>
-      <RainbowKitProvider chains={chains} theme={darkTheme()}>
+      <RainbowKitProvider coolMode chains={chains} theme={darkTheme({
+        ...darkTheme.accentColors.purple,
+        borderRadius: 'medium',
+      })}>
         <Component {...pageProps} />
       </RainbowKitProvider>
     </WagmiProvider>
