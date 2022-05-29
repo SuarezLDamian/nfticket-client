@@ -50,15 +50,6 @@ const Events: NextPage = () => {
               ))
             }
         </div>
-        {// Carousel if mobile
-        /* <div className="mt-24 flex justify-center">
-            <Carousel>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-            </Carousel>
-        </div> */}
         <Footer/>
       </>
     )
