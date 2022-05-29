@@ -41,7 +41,7 @@ const Events: NextPage = () => {
             <Steps stepNumber={2}/>
         </div>
         <h1 className='mt-8 text-4xl md:text-6xl flex justify-center'>Próximos eventos</h1>
-        <div className="p-16 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">        
+        <div className="sm:p-16 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">        
             {
               events.map((event, index) => (   
                 <div key={index} className='flex justify-center'>             
