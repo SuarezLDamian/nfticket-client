@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 
 interface CardProps {
@@ -10,10 +9,9 @@ interface CardProps {
 const Card = ( { title, description, image }: CardProps ) => {
 
     return (
-        <div className="card m-2 w-84 lg:card-side bg-base-100 shadow-xl">
-            <figure>
+        <div className="card m-2 w-60 h-90 bg-base-100 shadow-xl">
+            <figure className="max-h-xs max-w-xs">
                 <img src={image} alt={`Imagen Evento ${title}`} />
-                {/* <Image src={"https://pbs.twimg.com/media/DhnYoVQX4AUic5G.jpg"} layout="fill" alt={`Imagen Evento ${title}`} /> */}
             </figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
