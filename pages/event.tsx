@@ -26,12 +26,12 @@ const Event: NextPage = ( ) => {
             <div className="m-4 flex justify-center">
                 <h1 className="text-xl">{description}</h1>
             </div>
-            {/* <div className="m-4 flex justify-center">
-                <img src={image} alt="Duki Velez" />
-            </div> */}
+            <div className="m-4 flex justify-center">
+                <img src={image} alt={`Imagen Evento ${name}`} className='h-96 w-96'/>
+            </div>
             <div className="flex justify-center">
                 <Link href="/checkout">
-                    <a className="btn btn-primary mt-16">Comprar</a>
+                    <a className="btn btn-primary m-16">Comprar</a>
                 </Link>
             </div>
             <Footer/>
