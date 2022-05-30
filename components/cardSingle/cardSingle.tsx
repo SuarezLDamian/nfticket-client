@@ -14,7 +14,7 @@ interface CardProps {
 
 const CardSingle = ( { title, description, image, value, quantity }: CardProps ) => {
 
-    const contractTotalSupply = useContractValues();
+    const { totalSupply, maxSupply } = useContractValues();
 
     const CONTRACT_ADDRESS = process.env.TESTNET_CONTRACT_ADDRESS || "0x28dA9581572Ecd67E988ffdBba18bc803f395fa4";
 
@@ -34,7 +34,7 @@ const CardSingle = ( { title, description, image, value, quantity }: CardProps )
             </figure>
             <div className="card-body sm:w-50 flex justify-center">
                 <h2 className="card-title flex justify-center">{title}</h2>
-                <p className="flex justify-center">Disponibles: {contractTotalSupply}</p>
+                <p className="flex justify-center">Vendidos: {totalSupply} de {maxSupply}</p>
                 <p className="flex justify-center">Precio: {value} MATIC</p>
                 <div className="mt-4 card-actions justify-center">
                     <button onClick={() => handleClick()} className="btn btn-primary">Comprar</button>

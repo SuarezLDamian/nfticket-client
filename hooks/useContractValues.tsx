@@ -8,19 +8,22 @@ const ALCHEMY_TESTNET_KEY = process.env.TESTNET_ALCHEMY_ID || "X-Hag2hY3_W0wJycU
 const useContractValues = () => {
 
     const [ totalSupply, setTotalSupply ] = useState(0);
+    const [ maxSupply, setMaxSupply ] = useState(0);
 
     const getValues = async () => {
         const provider = new ethers.providers.AlchemyProvider("maticmum", ALCHEMY_TESTNET_KEY);
         const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, provider);
-        const totalSupply = await contract.MAX_TICKETS();
+        const maxSupply = await contract.MAX_TICKETS();
+        const totalSupply = await contract.totalSupply();
         setTotalSupply(totalSupply.toNumber());
+        setMaxSupply(maxSupply.toNumber());
     }
 
     useEffect(() => {
         getValues().catch(console.error);
     }, [totalSupply])
 
-    return totalSupply;
+    return { totalSupply, maxSupply };
 }
 
 export default useContractValues;
