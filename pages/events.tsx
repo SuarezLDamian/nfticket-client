@@ -24,7 +24,7 @@ const Events: NextPage = () => {
             {
               events.map((event, index) => (   
                 <div key={index} className='flex justify-center'>             
-                  <Card key={index} description={event.description} title={event.title} image={event.image} />
+                  <Card key={index} description={event.description} title={event.title} image={event.image} contract={event.contract}/>
                 </div>
               ))
             }

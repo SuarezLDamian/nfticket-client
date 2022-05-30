@@ -14,9 +14,7 @@ const Event: NextPage = ( ) => {
     const name = query?.title as string;
     const description = query?.description as string;
     const image = query?.image as string;
-
-    const PRICE = 10;
-    const QUANTITY = 200;
+    const contract = query?.contract as string;
 
     return (
         <>
@@ -31,7 +29,7 @@ const Event: NextPage = ( ) => {
                 <h2 className="text-xl">{description}</h2>
             </div>
             <div className="py-4 sm:px-16 xl:px-24 flex justify-center">            
-                <CardSingle title={name} description={description} image={image} value={PRICE} quantity={QUANTITY}/>        
+                <CardSingle title={name} description={description} image={image} contract={contract} />        
             </div>
             <div className="relative bottom-0">
                 <Footer/>

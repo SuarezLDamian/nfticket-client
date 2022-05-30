@@ -8,15 +8,14 @@ interface CardProps {
     title: string;
     description: string;
     image: string;
-    value: number;
-    quantity: number;
+    contract: string;
 }
 
-const CardSingle = ( { title, description, image, value, quantity }: CardProps ) => {
+const CardSingle = ( { title, description, image, contract }: CardProps ) => {
 
-    const { totalSupply, maxSupply, price } = useContractValues();
+    const { totalSupply, maxSupply, price } = useContractValues(contract);
 
-    const CONTRACT_ADDRESS = process.env.TESTNET_CONTRACT_ADDRESS || "0xfdaDfb74Febb4F4bbAA5c1B822fCfAE47f7B8c33";
+    const CONTRACT_ADDRESS = contract;
 
     const handleClick = async () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum)

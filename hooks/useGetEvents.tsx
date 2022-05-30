@@ -8,6 +8,7 @@ interface EventType {
     title: string;
     description: string;
     image: string;
+    contract: string;
 };
 
 const useGetEvents = () => {
@@ -22,6 +23,7 @@ const useGetEvents = () => {
                 title: doc.data().title,
                 description: doc.data().description,
                 image: doc.data().image,
+                contract: doc.data().contract,
             };
             return event;
         });

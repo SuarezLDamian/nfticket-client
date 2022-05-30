@@ -4,9 +4,10 @@ interface CardProps {
     title: string;
     description: string;
     image: string;
+    contract: string;
 }
 
-const Card = ( { title, description, image }: CardProps ) => {
+const Card = ( { title, description, image, contract }: CardProps ) => {
 
     return (
         <div className="card m-2 w-70 h-90 bg-base-100 shadow-xl">
@@ -19,7 +20,7 @@ const Card = ( { title, description, image }: CardProps ) => {
                 <div className="card-actions justify-end">
                     <Link href={{
                         pathname: "/event", 
-                        query: { title: title, description: description, image: image }}
+                        query: { title: title, description: description, image: image, contract: contract }}
                     }>
                         <a className="btn btn-primary">Quiero ir</a>
                     </Link>
