@@ -14,16 +14,17 @@ interface CardProps {
 
 const CardSingle = ( { title, description, image, value, quantity }: CardProps ) => {
 
-    const { totalSupply, maxSupply } = useContractValues();
+    const { totalSupply, maxSupply, price } = useContractValues();
 
-    const CONTRACT_ADDRESS = process.env.TESTNET_CONTRACT_ADDRESS || "0x28dA9581572Ecd67E988ffdBba18bc803f395fa4";
+    const CONTRACT_ADDRESS = process.env.TESTNET_CONTRACT_ADDRESS || "0xfdaDfb74Febb4F4bbAA5c1B822fCfAE47f7B8c33";
 
     const handleClick = async () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         await provider.send("eth_requestAccounts", []); // enviar pop-up en Metamask
         const signer = provider.getSigner()
         const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
-        const tx = await contract.safeMint("0xd5296b5c877bEe10a687D737e8bd7B82a9928D15");
+        const tx = await contract.mintPresale(1, { value: price });
+        console.log(tx)
         await tx.wait()
     }
 
@@ -35,7 +36,7 @@ const CardSingle = ( { title, description, image, value, quantity }: CardProps )
             <div className="card-body sm:w-50 flex justify-center">
                 <h2 className="card-title flex justify-center">{title}</h2>
                 <p className="flex justify-center">Vendidos: {totalSupply} de {maxSupply}</p>
-                <p className="flex justify-center">Precio: {value} MATIC</p>
+                <p className="flex justify-center">Precio: {price} MATIC</p>
                 <div className="mt-4 card-actions justify-center">
                     <button onClick={() => handleClick()} className="btn btn-primary">Comprar</button>
                 </div>
