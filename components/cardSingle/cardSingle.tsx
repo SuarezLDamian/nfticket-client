@@ -1,6 +1,4 @@
 import { ethers } from "ethers";
-import { useState, useEffect, useCallback } from "react";
-import { wagmiClient } from '../../config/wagmiConfig';
 import useContractValues from '../../hooks/useContractValues';
 const { abi } = require("../../contracts/NFTicket.json");
 
@@ -18,12 +16,15 @@ const CardSingle = ( { title, description, image, value, quantity }: CardProps )
 
     const contractTotalSupply = useContractValues();
 
+    const CONTRACT_ADDRESS = process.env.TESTNET_CONTRACT_ADDRESS || "0x28dA9581572Ecd67E988ffdBba18bc803f395fa4";
+
     const handleClick = async () => {
-        // if(stateContract) {
-            // PROBANDO MINT, TIRA ERROR EN CONSOLA
-            // await PROVIDER.send("eth_requestAccounts", []);
-            console.log("clicked");
-        // }
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        await provider.send("eth_requestAccounts", []); // enviar pop-up en Metamask
+        const signer = provider.getSigner()
+        const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
+        const tx = await contract.safeMint("0xd5296b5c877bEe10a687D737e8bd7B82a9928D15");
+        await tx.wait()
     }
 
     return (
