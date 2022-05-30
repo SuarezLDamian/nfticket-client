@@ -1,6 +1,5 @@
-import { getProvider } from "@wagmi/core";
 import { ethers } from "ethers";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 const { abi } = require("../contracts/NFTicket.json");
 
 const CONTRACT_ADDRESS = process.env.TESTNET_CONTRACT_ADDRESS || "0x28dA9581572Ecd67E988ffdBba18bc803f395fa4";
