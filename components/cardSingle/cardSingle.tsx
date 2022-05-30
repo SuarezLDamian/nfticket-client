@@ -1,8 +1,10 @@
-import Image from "next/image";
-import Link from "next/link";
 import { ethers } from "ethers";
-import { useEffect } from "react";
-// const { abi } = require("../../contracts/NFTicket.json");
+import { useState, useEffect, useCallback } from "react";
+import { wagmiClient } from '../../config/wagmiConfig';
+import useContractValues from '../../hooks/useContractValues';
+const { abi } = require("../../contracts/NFTicket.json");
+
+declare let window: any;
 
 interface CardProps {
     title: string;
@@ -11,42 +13,27 @@ interface CardProps {
     value: number;
     quantity: number;
 }
-declare let window: any;
-
-const ALCHEMY_PROVIDER = ["matic", "FgJ5VmlekxsmwE6lUZ90pu0i02escfJT"]
-const CONTRACT_ADDRESS = "0xd5E12430159173d93642B302331477c228457082";
-const KEY = process.env.PRIVATE_KEY
 
 const CardSingle = ( { title, description, image, value, quantity }: CardProps ) => {
 
-    const handleClick = async () => {
+    const contractTotalSupply = useContractValues();
 
-        // const provider = new ethers.providers.AlchemyProvider(...ALCHEMY_PROVIDER);
-        
-        const provider = new ethers.providers.Web3Provider(window.ethereum)
-        // console.log("el provider es:", provider)
-        await provider.send("eth_requestAccounts", []); // enviar pop-up en Metamask
-        const signer = provider.getSigner();
+    const handleClick = async () => {
+        // if(stateContract) {
+            // PROBANDO MINT, TIRA ERROR EN CONSOLA
+            // await PROVIDER.send("eth_requestAccounts", []);
+            console.log("clicked");
+        // }
     }
 
-    useEffect(() => {
-        const alchemyProvider = new ethers.providers.AlchemyProvider(...ALCHEMY_PROVIDER);
-        console.log("el alchemyProvider es:", alchemyProvider)
-        // const wallet = new ethers.Wallet(KEY, alchemyProvider);
-        // const signer = wallet.connect(alchemyProvider);
-        
-        // let contract = new ethers.Contract(CONTRACT_ADDRESS, abi, alchemyProvider);
-
-    }, [])
-
     return (
-        <div className="card m-2 w-60 h-90 sm:w-max sm:card-side bg-base-100 shadow-xl">
+        <div className="card m-2 w-70 h-90 sm:w-max sm:card-side sm:m-5 bg-base-100 shadow-xl">
             <figure className="max-h-xs max-w-xs">
                 <img src={image} alt={`Imagen Evento ${title}`} />
             </figure>
-            <div className="card-body flex justify-center">
+            <div className="card-body sm:w-50 flex justify-center">
                 <h2 className="card-title flex justify-center">{title}</h2>
-                <p className="flex justify-center">Disponibles: {quantity}</p>
+                <p className="flex justify-center">Disponibles: {contractTotalSupply}</p>
                 <p className="flex justify-center">Precio: {value} MATIC</p>
                 <div className="mt-4 card-actions justify-center">
                     <button onClick={() => handleClick()} className="btn btn-primary">Comprar</button>
