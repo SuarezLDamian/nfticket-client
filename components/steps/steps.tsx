@@ -1,4 +1,3 @@
-
 interface StepsProps {
     stepNumber: number
 }
@@ -6,7 +5,7 @@ interface StepsProps {
 const Steps = ({ stepNumber }: StepsProps) => {
   return (
         stepNumber === 2 ?
-        <ul className="steps">
+        <ul className="steps mt-4">
             <li className="step step-primary">Conectá</li>
             <li className="step step-primary">Elegí</li>
             <li className="step">Comprá</li>
@@ -14,14 +13,14 @@ const Steps = ({ stepNumber }: StepsProps) => {
         </ul>
         :
         stepNumber === 3 ?
-        <ul className="steps">
+        <ul className="steps mt-4">
             <li className="step step-primary">Conectá</li>
             <li className="step step-primary">Elegí</li>
             <li className="step step-primary">Comprá</li>
             <li className="step">Listo</li>
         </ul>
         :
-        <ul className="steps">
+        <ul className="steps mt-4">
             <li className="step step-primary">Conectá</li>
             <li className="step step-primary">Elegí</li>
             <li className="step step-primary">Comprá</li>
