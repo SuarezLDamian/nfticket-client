@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <WagmiProvider client={wagmiClient}>
       <RainbowKitProvider chains={chains} theme={midnightTheme({
         accentColor: '#5020B8',
-        borderRadius: 'small',
+        borderRadius: 'medium',
         fontStack: 'system',
         accentColorForeground: '#FFFFFA',
       })}>
