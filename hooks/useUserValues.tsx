@@ -1,19 +1,22 @@
 import { ethers } from "ethers";
 import { useState, useEffect, useCallback } from "react";
 const { abi } = require("../contracts/NFTicket.json");
+import { useAccount } from 'wagmi'
 
 const ALCHEMY_TESTNET_KEY = process.env.TESTNET_ALCHEMY_ID || "X-Hag2hY3_W0wJycUUKa5AnbGTF4t1wL"
 
-const useContractValues = ( userAddess: string, contractAddress: string) => {
+const useUserValues = ( contractAddress: string) => {
 
     const [ balance, setBalance ] = useState("0");
+    const { data } = useAccount()
+    const userAddress = data?.address || "0x0000000000000000000000000000000000000000"
 
     const getUserValues = useCallback(async () => {
         const provider = new ethers.providers.AlchemyProvider("maticmum", ALCHEMY_TESTNET_KEY);
         const contract = new ethers.Contract(contractAddress, abi, provider);
-        const balance = await contract.balanceOf(userAddess);
+        const balance = await contract.balanceOf(userAddress);
         setBalance(balance.toNumber());
-    }, [contractAddress, userAddess]);
+    }, [contractAddress, userAddress]);
 
     useEffect(() => {
         getUserValues().catch(console.error);
@@ -22,4 +25,4 @@ const useContractValues = ( userAddess: string, contractAddress: string) => {
     return { balance };
 }
 
-export default useContractValues;
+export default useUserValues;

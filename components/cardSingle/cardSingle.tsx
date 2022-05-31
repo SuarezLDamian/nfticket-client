@@ -13,10 +13,9 @@ interface CardProps {
 const CardSingle = ( { title, image, contract }: CardProps ) => {
 
     const TESTNET_CONTRACT_ADDRESS = process.env.TESTNET_CONTRACT_ADDRESS || "0xfdaDfb74Febb4F4bbAA5c1B822fCfAE47f7B8c33";
-    const DEVELOPER_ADDRESS = "0xd5296b5c877bEe10a687D737e8bd7B82a9928D15";
 
     const { totalSupply, maxSupply, price } = useContractValues(TESTNET_CONTRACT_ADDRESS);
-    const { balance } = useUserValues(DEVELOPER_ADDRESS, TESTNET_CONTRACT_ADDRESS);
+    const { balance } = useUserValues(TESTNET_CONTRACT_ADDRESS);
 
     const handleClick = async () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
