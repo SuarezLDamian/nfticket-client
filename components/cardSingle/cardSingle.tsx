@@ -2,6 +2,7 @@ import { ethers } from "ethers";
 const { abi } = require("../../contracts/NFTicket.json");
 import useContractValues from '../../hooks/useContractValues';
 import useUserValues from "../../hooks/useUserValues";
+import useGraphValues from "../../hooks/useGraphValues";
 
 declare let window: any;
 interface CardProps {
@@ -16,6 +17,7 @@ const CardSingle = ( { title, image, contract }: CardProps ) => {
 
     const { totalSupply, maxSupply, price } = useContractValues(TESTNET_CONTRACT_ADDRESS);
     const { balance } = useUserValues(TESTNET_CONTRACT_ADDRESS);
+    const { tokenPrice } = useGraphValues();
 
     const handleClick = async () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -35,6 +37,7 @@ const CardSingle = ( { title, image, contract }: CardProps ) => {
                 <h2 className="card-title flex justify-center">{title}</h2>
                 <p className="flex justify-center">Vendidos: {totalSupply} de {maxSupply}</p>
                 <p className="flex justify-center">Precio: {price} MATIC</p>
+                <p className="flex justify-center">MATIC: {tokenPrice} USD</p>
                 <p className="flex justify-center">Tenés: {balance} Entradas</p>
                 <div className="mt-4 card-actions justify-center">
                     <button onClick={() => handleClick()} className="btn btn-primary">Comprar</button>
