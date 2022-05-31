@@ -48,7 +48,7 @@ const NavBar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-               <ConnectButton />
+               <ConnectButton label="Conectarme" accountStatus="address" chainStatus="icon"/>
             </div>
         </nav>
     )
