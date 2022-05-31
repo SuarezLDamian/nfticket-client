@@ -15,13 +15,15 @@ const NavBar = () => {
                                 <a>Inicio</a>
                             </Link>
                         </li>
-                        <li tabIndex={0}>
+                        <li>
                             <Link href="/events">
                                 <a>Eventos</a>
                             </Link>
-                            </li>
+                        </li>
                         <li>
-                            <a>Nosotros</a>
+                            <Link href="/upload">
+                                <a>Nuevo</a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -43,7 +45,9 @@ const NavBar = () => {
                         </Link>
                     </li>
                     <li>
-                        <a>Nosotros</a>
+                        <Link href="/upload">
+                            <a>Nuevo</a>
+                        </Link>
                     </li>
                 </ul>
             </div>
