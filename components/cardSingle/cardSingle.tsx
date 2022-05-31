@@ -13,15 +13,15 @@ interface CardProps {
 
 const CardSingle = ( { title, description, image, contract }: CardProps ) => {
 
-    const { totalSupply, maxSupply, price } = useContractValues(contract);
+    const TESTNET_CONTRACT_ADDRESS = process.env.TESTNET_CONTRACT_ADDRESS || "0xfdaDfb74Febb4F4bbAA5c1B822fCfAE47f7B8c33";
 
-    const CONTRACT_ADDRESS = contract;
+    const { totalSupply, maxSupply, price } = useContractValues(TESTNET_CONTRACT_ADDRESS);
 
     const handleClick = async () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         await provider.send("eth_requestAccounts", []); // enviar pop-up en Metamask
         const signer = provider.getSigner()
-        const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
+        const contract = new ethers.Contract(TESTNET_CONTRACT_ADDRESS, abi, signer);
         const tx = await contract.mintPresale(1, { value: price });
         console.log(tx)
         await tx.wait()
