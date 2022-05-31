@@ -10,7 +10,7 @@ interface CardProps {
 const Card = ( { title, description, image, contract }: CardProps ) => {
 
     return (
-        <div className="card m-2 w-70 h-90 bg-base-100 shadow-xl">
+        <div className="card my-2 mx-1 w-70 h-90 bg-base-100 shadow-xl">
             <figure className="max-h-xs max-w-xs">
                 <img src={image} alt={`Imagen Evento ${title}`} />
             </figure>
