@@ -1,21 +1,22 @@
 import { ethers } from "ethers";
-import useContractValues from '../../hooks/useContractValues';
 const { abi } = require("../../contracts/NFTicket.json");
+import useContractValues from '../../hooks/useContractValues';
+import useUserValues from "../../hooks/useUserValues";
 
 declare let window: any;
-
 interface CardProps {
     title: string;
-    description: string;
     image: string;
     contract: string;
 }
 
-const CardSingle = ( { title, description, image, contract }: CardProps ) => {
+const CardSingle = ( { title, image, contract }: CardProps ) => {
 
     const TESTNET_CONTRACT_ADDRESS = process.env.TESTNET_CONTRACT_ADDRESS || "0xfdaDfb74Febb4F4bbAA5c1B822fCfAE47f7B8c33";
+    const DEVELOPER_ADDRESS = "0xd5296b5c877bEe10a687D737e8bd7B82a9928D15";
 
     const { totalSupply, maxSupply, price } = useContractValues(TESTNET_CONTRACT_ADDRESS);
+    const { balance } = useUserValues(DEVELOPER_ADDRESS, TESTNET_CONTRACT_ADDRESS);
 
     const handleClick = async () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -23,7 +24,6 @@ const CardSingle = ( { title, description, image, contract }: CardProps ) => {
         const signer = provider.getSigner()
         const contract = new ethers.Contract(TESTNET_CONTRACT_ADDRESS, abi, signer);
         const tx = await contract.mintPresale(1, { value: price });
-        console.log(tx)
         await tx.wait()
     }
 
@@ -36,6 +36,7 @@ const CardSingle = ( { title, description, image, contract }: CardProps ) => {
                 <h2 className="card-title flex justify-center">{title}</h2>
                 <p className="flex justify-center">Vendidos: {totalSupply} de {maxSupply}</p>
                 <p className="flex justify-center">Precio: {price} MATIC</p>
+                <p className="flex justify-center">Tenés: {balance} Entradas</p>
                 <div className="mt-4 card-actions justify-center">
                     <button onClick={() => handleClick()} className="btn btn-primary">Comprar</button>
                 </div>
