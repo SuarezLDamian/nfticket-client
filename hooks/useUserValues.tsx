@@ -8,8 +8,8 @@ const ALCHEMY_TESTNET_KEY = process.env.TESTNET_ALCHEMY_ID || "X-Hag2hY3_W0wJycU
 const useUserValues = ( contractAddress: string) => {
 
     const [ balance, setBalance ] = useState("0");
-    const { data } = useAccount()
-    const userAddress = data?.address || "0x0000000000000000000000000000000000000000"
+    const { data } = useAccount();
+    const userAddress = data?.address;
 
     const getUserValues = useCallback(async () => {
         const provider = new ethers.providers.AlchemyProvider("maticmum", ALCHEMY_TESTNET_KEY);
