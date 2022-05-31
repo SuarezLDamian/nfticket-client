@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 import NavBar from '../components/navbar/navbar';
 import Steps from '../components/steps/steps';
@@ -29,7 +28,7 @@ const Event: NextPage = ( ) => {
                 <h2 className="text-xl">{description}</h2>
             </div>
             <div className="py-4 sm:px-16 xl:px-24 flex justify-center">            
-                <CardSingle title={name} description={description} image={image} contract={contract} />        
+                <CardSingle title={name} image={image} contract={contract} />        
             </div>
             <div className="relative bottom-0">
                 <Footer/>
