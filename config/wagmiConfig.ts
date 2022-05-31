@@ -1,16 +1,11 @@
-import {
-    apiProvider,
-    configureChains,
-    getDefaultWallets
-  } from '@rainbow-me/rainbowkit';
+import { configureChains, getDefaultWallets, connectorsForWallets, wallet } from '@rainbow-me/rainbowkit';
 import { chain, createClient } from 'wagmi';
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 
-const alchemyId = process.env.TESTNET_ALCHEMY_ID
+const alchemyId = process.env.TESTNET_ALCHEMY_ID || "X-Hag2hY3_W0wJycUUKa5AnbGTF4t1wL"
 
 export const { chains, provider } = configureChains(
   [
-    chain.mainnet, 
     chain.polygon,
     chain.polygonMumbai
   ], 
