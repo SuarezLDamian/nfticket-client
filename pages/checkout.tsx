@@ -11,13 +11,15 @@ const Checkout: NextPage = () => {
             <div className="flex justify-center">
                 <Steps stepNumber={4}/>
             </div>
-            <div className="m-8 flex justify-center">            
+            <div className="pt-8 flex justify-center">
               <h1 className='text-4xl'>¡Ya tenés tu entrada!</h1>
             </div>
-            <div className="m-4 flex justify-center">
-                <h2 className="text-xl">Un NFT fue enviado a tu wallet. Usalo para ingresar al evento.</h2>
+            <div className="p-8 flex justify-center">
+                <p className="text-xl">Un NFT fue enviado a tu wallet. Usalo para ingresar al evento.</p>
             </div>
-            <Footer/>
+            <div className="relative bottom-0">
+                <Footer/>
+            </div>
         </>
     )
   }
