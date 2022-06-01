@@ -11,13 +11,11 @@ const Upload: NextPage = () => {
     const { data } = useAccount();
     const userAddress = data?.address as string;
 
-    console.log(userAddress);
-
     return (
         <>
             <NavBar/>
             {
-                userAddress === null || undefined ?
+                userAddress == null || undefined ?
                 <>
                     <div className="pt-8 flex justify-center">
                         <h1 className='text-4xl'>Conectá tu wallet</h1>
