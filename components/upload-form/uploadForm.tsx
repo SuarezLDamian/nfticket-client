@@ -37,7 +37,7 @@ const UploadForm = () => {
             <input {...register("title", { required: true })} type="text" placeholder="Título" className="input input-bordered input-md w-full max-w-xs" />
             <input {...register("description", { required: true })} type="text" placeholder="Descripción" className="input input-bordered input-md w-full max-w-xs" />
             <input {...register("image", { required: true })} type="text" placeholder="URL de la imagen" className="input input-bordered input-md w-full max-w-xs" />
-            <input defaultValue={DEFAULT_CONTRACT_ADDRESS} {...register("contract", { required: true })} type="text" placeholder="Dirección del contrato" className="input input-bordered input-md w-full max-w-xs" />
+            <input defaultValue={DEFAULT_CONTRACT_ADDRESS} {...register("contract", { required: true })} type="text" placeholder="Dirección del contrato" className="input input-bordered input-md w-full max-w-xs" disabled />
             <input type="submit" className="btn btn-primary" />
         </form>
     );
