@@ -17,22 +17,22 @@ const Upload: NextPage = () => {
             {
                 userAddress == null || undefined ?
                 <>
-                    <div className="pt-8 flex justify-center">
-                        <h1 className='text-4xl'>Conectá tu wallet</h1>
+                    <div className="mt-8 flex justify-center">
+                        <h1 className="text-4xl sm:text-6xl">Conectá tu wallet</h1>
                     </div>
-                    <div className="p-8 flex justify-center">
+                    <div className="my-8 flex justify-center">
                         <p className="text-xl">Debés ingresar para crear un evento.</p>
                     </div>
                 </>
                 :
                 <>
-                    <div className="pt-8 flex justify-center">
-                        <h1 className='text-4xl'>Contanos sobre el evento</h1>
+                    <div className="mt-8 flex justify-center">
+                        <h1 className="text-3xl sm:text-6xl">Contanos sobre el evento</h1>
                     </div>
-                    <div className="p-8 flex justify-center">
+                    <div className="my-4 flex justify-center">
                         <p className="text-xl">Solo necesitamos unos pocos datos.</p>
                     </div>
-                    <div className="mb-24 flex justify-center">
+                    <div className="mt-8 mb-24 flex justify-center">
                         <UploadForm />
                     </div>
                 </>
