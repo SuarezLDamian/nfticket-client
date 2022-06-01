@@ -40,17 +40,19 @@ const CardSingle = ( { title, image, contract }: CardProps ) => {
                 <h2 className="card-title flex justify-center">{title}</h2>
                 <p className="flex justify-center">Vendidos: {totalSupply} de {maxSupply}</p>
                 <p className="flex justify-center">Precio: {price} MATIC</p>
-                <p className="flex justify-center">MATIC: {tokenPrice} USD</p>
-                <p className="flex justify-center">Tenés: {balance} Entradas</p>
+                <p className="flex justify-center">MATIC: {tokenPrice} USD</p>                
                 {
                     userAddress == null || undefined ?
                     <div className="mt-4 card-actions justify-center">
                         <button onClick={() => handleClick()} className="btn btn-primary" disabled>Comprar</button>
                     </div>
                     :
-                    <div className="mt-4 card-actions justify-center">
-                        <button onClick={() => handleClick()} className="btn btn-primary">Comprar</button>
-                    </div>
+                    <>
+                        <p className="flex justify-center">Tenés: {balance} Entradas</p>
+                        <div className="mt-4 card-actions justify-center">
+                            <button onClick={() => handleClick()} className="btn btn-primary">Comprar</button>
+                        </div>
+                    </>
                 }                
             </div>
         </div>
